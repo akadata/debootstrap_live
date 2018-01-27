@@ -1,7 +1,7 @@
 # debootstrap_live
 Generates a bootable ISO with current system kernel and debootstrap base system
 
-<h4>Preperation</h4>
+<h4>Preparation</h4>
 
 sudo apt install wget make gawk gcc bc libelf-dev xorriso debootstrap curl
 
