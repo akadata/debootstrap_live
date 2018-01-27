@@ -44,10 +44,9 @@ cp ../rootfs.cpio.gz ./rootfs.gz
 mkdir src
 cp ../../*.sh src
 cp ../../.config src
-cp ../../*.txt src
 chmod +rx src/*.sh
 chmod +r src/.config
-chmod +r src/*.txt
+
 
 # Create ISOLINUX configuration file.
 echo 'default kernel.bz  initrd=rootfs.gz root=/dev/ram0' > ./isolinux.cfg
@@ -58,8 +57,6 @@ genisoimage -J -r -o ../debtrap_linux_live.iso -b isolinux.bin -c boot.cat -no-e
 # This allows the ISO image to be bootable if it is burned on USB flash drive.
 isohybrid ../debtrap_linux_live.iso 2>/dev/null || true
 
-# Copy the ISO image to the root project folder.
-cp ../debtrap_linux_live.iso ../../
 
 cd ../..
 
