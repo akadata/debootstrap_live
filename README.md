@@ -1,5 +1,5 @@
 # debootstrap_live
-Generates and bootable ISO with current system kernel and debootstrap base system
+Generates a bootable ISO with current system kernel and debootstrap base system
 
 <h4>Preperation</h4>
 
