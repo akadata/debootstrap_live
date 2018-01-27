@@ -1,7 +1,9 @@
 #!/bin/sh
+KERNEL_SOURCE_URL=https://git.kernel.org/torvalds/t/linux-4.15-rc9.tar.gz
+
 
 # Grab everything after the '=' character.
-DOWNLOAD_URL=$(grep -i KERNEL_SOURCE_URL .config | cut -f2 -d'=')
+DOWNLOAD_URL=$(echo $KERNEL_SOURCE_URL| cut -f2 -d'=')
 
 
 # Grab everything after the last '/' character.
