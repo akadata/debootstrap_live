@@ -4,7 +4,11 @@ cd work/kernel
 cd $(ls -d *)
 WORK_KERNEL_DIR=$(pwd)
 cd ../../..
-
+SYSLINUX_VERSION=6.01
+cd work
+wget -4 https://www.kernel.org/pub/linux/utils/boot/syslinux/syslinux-$SYSLINUX_VERSION.tar.gz
+tar -xvzf syslinux-$SYSLINUX_VERSION.tar.gz
+cd ..
 
 # Remove the old ISO file if it exists.
 rm -f debtrap_linux_live.iso
@@ -16,23 +20,9 @@ rm -rf work/isoimage
 mkdir work/isoimage
 cd work/isoimage
 
-#I commented this part because on some system isolinux.bin ldlinux.c32 is missing
-#The files are located in the script folder
+cp ../syslinux-$SYSLINUX_VERSION/bios/core/isolinux.bin .
+cp ../syslinux-$SYSLINUX_VERSION/bios/com32/elflink/ldlinux/ldlinux.c32 .
 
-cp ../../isolinux.bin .
-cp ../../ldlinux.c32 .
-
-# Search and copy the files 'isolinux.bin' and 'ldlinux.c32'
-#for i in lib lib64 share media end ; do
-#    if [ -f /usr/$i/syslinux/isolinux.bin ]; then
-#        cp /usr/$i/syslinux/isolinux.bin .
-#        if [ -f /usr/$i/syslinux/ldlinux.c32 ]; then
-#            cp /usr/$i/syslinux/ldlinux.c32 .
-#        fi;
-#        break;
-#    fi;
-#    if [ $i = end ]; then exit 1; fi;
-#done
 
 # Now we copy the kernel.
 cp $WORK_KERNEL_DIR/arch/x86/boot/bzImage ./kernel.bz
@@ -47,7 +37,6 @@ cp ../../.config src
 chmod +rx src/*.sh
 chmod +r src/.config
 
-
 # Create ISOLINUX configuration file.
 echo 'default kernel.bz  initrd=rootfs.gz root=/dev/ram0' > ./isolinux.cfg
 
@@ -55,8 +44,9 @@ echo 'default kernel.bz  initrd=rootfs.gz root=/dev/ram0' > ./isolinux.cfg
 genisoimage -J -r -o ../debtrap_linux_live.iso -b isolinux.bin -c boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table ./
 
 # This allows the ISO image to be bootable if it is burned on USB flash drive.
-isohybrid ../debtrap_linux_live.iso 2>/dev/null || true
+isohybrid ../deptrap_linux_live.iso 2>/dev/null || true
 
 
 cd ../..
+
 
