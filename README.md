@@ -13,7 +13,7 @@ git clone https://github.com/zac87/debootstrap_live.git
 
 cd debootstrap_live &&
 chmod +x *.sh &&
-./debootstrap_live
+sudo ./debootstrap_live
 
 
 
