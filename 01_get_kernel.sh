@@ -16,6 +16,7 @@ cd source
 wget -c $DOWNLOAD_URL
 
 # Delete folder with previously extracted kernel.
+echo "Deleting old kernel folder ..."
 rm -rf ../work/kernel
 mkdir ../work/kernel
 
