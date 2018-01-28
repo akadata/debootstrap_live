@@ -9,7 +9,7 @@ debootstrap stable $BASE_DIR http://deb.debian.org/debian/
 
 cd $BASE_DIR
 touch chroot.sh
-echo "echo 'root:root' | chpasswd && echo 'Acquire::ForceIPv4 true;' | sudo tee /etc/apt/apt.conf.d/99force-ipv4 && yes | apt-get install parted" > chroot.sh
+echo "echo 'root:root' | chpasswd && echo 'Acquire::ForceIPv4 true;' | sudo tee /etc/apt/apt.conf.d/99force-ipv4 && yes | apt-get install grub parted" > chroot.sh
 chmod +x chroot.sh
 
 cd ..
