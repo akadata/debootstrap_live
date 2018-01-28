@@ -9,7 +9,7 @@ debootstrap stable $BASE_DIR http://deb.debian.org/debian/
 
 cd $BASE_DIR
 touch chroot.sh
-echo "echo 'root:root' | chpasswd && yes | apt-get install xinit openbox" > chroot.sh
+echo "echo 'root:root' | chpasswd && yes | apt-get install xinit openbox eterm" > chroot.sh
 chmod +x chroot.sh
 
 cd ..
