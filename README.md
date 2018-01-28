@@ -18,5 +18,7 @@ sudo ./debootstrap_live
 
 
 The script will take a while to complete the build process.
+NOTE that debootstrap will not work on a encrypted partition. 
+Try to make the changes suggested in 03_fetch_root_fs.sh 
 
 This script is based on the work of Ivan Davidov http://minimal.linux-bg.org
