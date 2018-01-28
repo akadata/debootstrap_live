@@ -6,7 +6,7 @@ WORK_KERNEL_DIR=$(pwd)
 cd ../../..
 SYSLINUX_VERSION=6.01
 cd work
-wget -4 https://www.kernel.org/pub/linux/utils/boot/syslinux/syslinux-$SYSLINUX_VERSION.tar.gz
+wget -4 -nc https://www.kernel.org/pub/linux/utils/boot/syslinux/syslinux-$SYSLINUX_VERSION.tar.gz
 tar -xvzf syslinux-$SYSLINUX_VERSION.tar.gz
 cd ..
 
