@@ -1,5 +1,6 @@
 # debootstrap_live
 Generates a bootable ISO with current kernel and debootstrap base system
+https://www.gitbook.com/book/siad/create-your-own-debian-based-linux-distro/details
 
 <img src="DebTrapLinux.png">
 
